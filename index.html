@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeganteXXX | Premium Adult Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        .top-bar {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #222;
+            padding: 15px 3%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(45deg, #e63946, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #1c1c1c;
+            border: 1px solid #333;
+            border-radius: 30px;
+            padding: 8px 20px;
+            width: 300px;
+            transition: 0.3s;
+        }
+        .search-box:focus-within {
+            border-color: #e63946;
+            box-shadow: 0 0 15px rgba(230, 57, 70, 0.3);
+        }
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            width: 100%;
+            outline: none;
+        }
+        .search-box button {
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: 0.2s;
+        }
+        .search-box button:hover { color: #e63946; }
+        .btn-premium {
+            background: linear-gradient(45deg, #e63946, #ff4d4d);
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.5);
+        }
+        .kategoriler {
+            display: flex;
+            gap: 10px;
+            padding: 20px 3%;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #1f1f1f;
+        }
+        .kat-btn {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #ccc;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .kat-btn:hover, .kat-btn.active {
+            background: #e63946;
+            border-color: #e63946;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 25px 3%;
+        }
+        .video-card {
+            background: #121212;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #1f1f1f;
+        }
+        .video-card:hover {
+            border-color: #e63946;
+            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.25);
+            transform: translateY(-5px);
+        }
+        .video-player {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-player iframe, .video-player video {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .video-info {
+            padding: 15px;
+        }
+        .video-info h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #f0f0f0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.85rem;
+        }
+        .video-meta i { margin-right: 4px; color: #e63946; }
+        .yukleme-alani {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 25px;
+            background: #111;
+            border-radius: 12px;
+            border: 1px solid #222;
+        }
+        .yukleme-alani h3 { color: #e63946; margin-bottom: 15px; }
+        .yukleme-alani input, .yukleme-alani select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+        .yukleme-alani input:focus, .yukleme-alani select:focus { border-color: #e63946; outline: none; }
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="logo">LeganteXXX</div>
+        <div class="search-box">
+            <input type="text" placeholder="Video, kategori ara..." id="aramaInput" oninput="filtrele()">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <button class="btn-premium" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})">
+            <i class="fas fa-cloud-upload-alt"></i> Video Ekle
+        </button>
+    </header>
+
+    <div class="kategoriler">
+        <button class="kat-btn active" onclick="kategoriSec('hepsi', this)">🔥 Hepsi</button>
+        <button class="kat-btn" onclick="kategoriSec('amatör', this)">🏠 Amatör</button>
+        <button class="kat-btn" onclick="kategoriSec('profesyonel', this)">⭐ Profesyonel</button>
+        <button class="kat-btn" onclick="kategoriSec('bdsm', this)">⛓️ BDSM</button>
+        <button class="kat-btn" onclick="kategoriSec('anal', this)">🍑 Anal</button>
+        <button class="kat-btn" onclick="kategoriSec('grup', this)">👥 Grup</button>
+        <button class="kat-btn" onclick="kategoriSec('olgun', this)">🍷 Olgun</button>
+    </div>
+
+    <div class="video-grid" id="videoGrid">
+        <!-- Kartlar JavaScript ile dinamik oluşturulacak -->
+    </div>
+
+    <div class="yukleme-alani">
+        <h3>📤 Video Ekle (Link ile)</h3>
+        <form id="uploadForm">
+            <label>Video Başlığı *</label>
+            <input type="text" id="baslik" placeholder="Harika bir başlık gir..." required>
+            <label>Kategori *</label>
+            <select id="kategori" required>
+                <option value="">Seçiniz...</option>
+                <option value="amatör">Amatör</option>
+                <option value="profesyonel">Profesyonel</option>
+                <option value="bdsm">BDSM</option>
+                <option value="anal">Anal</option>
+                <option value="grup">Grup</option>
+                <option value="olgun">Olgun</option>
+            </select>
+            <label>Video Embed Linki (iframe URL) *</label>
+            <input type="url" id="link" placeholder="https://... embed linki" required>
+            <label>Etiketler (virgülle ayır)</label>
+            <input type="text" id="etiketler" placeholder="Örn: hd, 4k, komik">
+            <button type="submit" class="btn-premium" style="width:100%; margin-top:15px;">
+                <i class="fas fa-check"></i> Yayınla
+            </button>
+        </form>
+        <p style="color:#888; margin-top:10px; font-size:0.85rem; text-align:center;">
+            💡 Embed linki: Video paylaş butonundan "Göm" veya "Embed" kodundaki iframe src kısmını kopyalayın.
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 LeganteXXX. Tüm hakları saklıdır. 18+</p>
+    </footer>
+
+    <script>
+        // Varsayılan video havuzu (gerçek embed linkleri)
+        const varsayilanVideolar = [
+            {
+                baslik: "🔥 Amatör Çiftin Ev Halleri",
+                kategori: "amatör",
+                etiketler: ["amatör", "çift", "ev"],
+                embed: "https://player.vimeo.com/video/76979871?h=8272103f6e"
+            },
+            {
+                baslik: "💎 Profesyonel Stüdyo Çekimi",
+                kategori: "profesyonel",
+                etiketler: ["profesyonel", "stüdyo", "hd"],
+                embed: "https://player.vimeo.com/video/105955973?h=8e4b6a3f9c"
+            },
+            {
+                baslik: "⛓️ BDSM Başlangıç Rehberi",
+                kategori: "bdsm",
+                etiketler: ["bdsm", "rehber", "başlangıç"],
+                embed: "https://player.vimeo.com/video/32001287?h=2b5e8f1a4d"
+            },
+            {
+                baslik: "🍑 Anal Deneyim - İlk Kez",
+                kategori: "anal",
+                etiketler: ["anal", "ilk", "deneyim"],
+                embed: "https://player.vimeo.com/video/46531448?h=9c7d1a6e3f"
+            },
+            {
+                baslik: "👥 Kalabalık Grup Eğlencesi",
+                kategori: "grup",
+                etiketler: ["grup", "kalabalık", "eğlence"],
+                embed: "https://player.vimeo.com/video/105955973?h=8e4b6a3f9c"
+            },
+            {
+                baslik: "🍷 Olgun Deneyim Paylaşımı",
+                kategori: "olgun",
+                etiketler: ["olgun", "deneyim", "mature"],
+                embed: "https://player.vimeo.com/video/32001287?h=2b5e8f1a4d"
+            },
+            {
+                baslik: "🏠 Gizli Çekim Amatör",
+                kategori: "amatör",
+                etiketler: ["amatör", "gizli", "çekim"],
+                embed: "https://player.vimeo.com/video/76979871?h=8272103f6e"
+            },
+            {
+                baslik: "⭐ 4K Ultra HD Profesyonel",
+                kategori: "profesyonel",
+                etiketler: ["4k", "hd", "profesyonel"],
+                embed: "https://player.vimeo.com/video/46531448?h=9c7d1a6e3f"
+            }
+        ];
+
+        let tumVideolar = [...varsayilanVideolar];
+        let aktifKategori = "hepsi";
+
+        function videolariGoster(filtreliListe) {
+            const grid = document.getElementById("videoGrid");
+            if (!grid) return;
+            
+            if (filtreliListe.length === 0) {
+                grid.innerHTML = `<div style="text-align:center; padding:50px; color:#888; grid-column: 1/-1;">
+                    <i class="fas fa-search" style="font-size:3rem; display:block; margin-bottom:15px;"></i>
+                    <p>Bu kriterlere uygun video bulunamadı.</p>
+                </div>`;
+                return;
+            }
+
+            grid.innerHTML = filtreliListe.map((v, i) => `
+                <div class="video-card" data-kategori="${v.kategori}" data-baslik="${v.baslik.toLowerCase()}" data-etiketler="${v.etiketler.join(',')}">
+                    <div class="video-player">
+                        <iframe src="${v.embed}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>${v.baslik}</h3>
+                        <div class="video-meta">
+                            <span><i class="fas fa-tag"></i> ${v.kategori}</span>
+                            <span><i class="fas fa-tags"></i> ${v.etiketler.slice(0,2).join(', ')}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function kategoriSec(kategori, btn) {
+            aktifKategori = kategori;
+            document.querySelectorAll('.kat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filtrele();
+        }
+
+        function filtrele() {
+            const arama = (document.getElementById("aramaInput")?.value || "").toLowerCase();
+            
+            let sonuc = tumVideolar;
+            
+            // Kategori filtresi
+            if (aktifKategori !== "hepsi") {
+                sonuc = sonuc.filter(v => v.kategori === aktifKategori);
+            }
+            
+            // Arama filtresi
+            if (arama.trim() !== "") {
+                sonuc = sonuc.filter(v => 
+                    v.baslik.toLowerCase().includes(arama) || 
+                    v.kategori.toLowerCase().includes(arama) ||
+                    v.etiketler.some(e => e.toLowerCase().includes(arama))
+                );
+            }
+            
+            videolariGoster(sonuc);
+        }
+
+        // Video Ekleme Formu
+        document.getElementById("uploadForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const baslik = document.getElementById("baslik").value.trim();
+            const kategori = document.getElementById("kategori").value;
+            const link = document.getElementById("link").value.trim();
+            const etiketler = document.getElementById("etiketler").value.trim();
+            
+            if (!baslik || !kategori || !link) {
+                alert("⚠️ Başlık, kategori ve link zorunlu, Boss!");
+                return;
+            }
+
+            const yeniVideo = {
+                baslik: baslik,
+                kategori: kategori,
+                etiketler: etiketler ? etiketler.split(',').map(e => e.trim()) : [],
+                embed: link
+            };
+
+            tumVideolar.unshift(yeniVideo); // En başa ekle
+            filtrele();
+            
+            // Formu sıfırla
+            this.reset();
+            alert("✅ Video başarıyla eklendi! " + baslik);
+            
+            // Yukarı kaydır
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Sayfa yüklendiğinde
+        document.addEventListener("DOMContentLoaded", () => {
+            videolariGoster(tumVideolar);
+        });
+    </script>
+</body>
+</html>
